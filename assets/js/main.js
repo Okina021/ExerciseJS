@@ -29,6 +29,7 @@ function setResult(msg) {
   const result = document.querySelector("#result");
   result.innerHTML = "";
   const p = criaP();
+  p.classList = "p-resultado";
   p.innerHTML = msg;
   result.appendChild(p);
 }
