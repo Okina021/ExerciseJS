@@ -60,8 +60,14 @@ form button:hover {
   background: var(--primary-color-darker);
 }
 
-.p-resultado {
+.valid {
   background-color: lightgreen;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.not-valid{
+  background-color:tomato;
   padding: 10px 20px;
   border-radius: 10px;
 }

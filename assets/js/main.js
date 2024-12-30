@@ -5,11 +5,12 @@ form.addEventListener("submit", function (event) {
   const peso = Number(form.querySelector("#peso").value);
   const altura = Number(form.querySelector("#altura").value);
   if (!peso) {
-    setResult("Peso inválido");
+    setResult("Peso inválido", false);
     return;
   }
   if (!altura) {
-    setResult("Altura inválido");
+    setResult("Altura inválido", false);
+
     return;
   }
 
@@ -17,7 +18,7 @@ form.addEventListener("submit", function (event) {
   const nivelIMC = getGrauIMC(imc);
   const msg = `Seu IMC é ${imc}: ${nivelIMC}`;
 
-  setResult(msg);
+  setResult(msg, true);
 });
 
 function criaP() {
@@ -25,11 +26,15 @@ function criaP() {
   return p;
 }
 
-function setResult(msg) {
+function setResult(msg, isValid) {
   const result = document.querySelector("#result");
   result.innerHTML = "";
   const p = criaP();
-  p.classList = "p-resultado";
+  if (isValid) {
+    p.classList = "valid";
+  } else {
+    p.classList = "not-valid";
+  }
   p.innerHTML = msg;
   result.appendChild(p);
 }
@@ -49,9 +54,9 @@ function getGrauIMC(imc) {
   ];
 
   if (imc >= 39.9) return grau[5];
-  if (imc >= 34.9) return grau[4];
-  if (imc >= 29.9) return grau[3];
-  if (imc >= 34.9) return grau[2];
+  if (imc >= 29.9) return grau[4];
+  if (imc >= 34.9) return grau[3];
+  if (imc >= 24.9) return grau[2];
   if (imc >= 18.5) return grau[1];
   if (imc < 18.5) return grau[0];
 }
