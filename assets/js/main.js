@@ -54,8 +54,8 @@ function getGrauIMC(imc) {
   ];
 
   if (imc >= 39.9) return grau[5];
-  if (imc >= 29.9) return grau[4];
-  if (imc >= 34.9) return grau[3];
+  if (imc >= 34.9) return grau[4];
+  if (imc >= 29.9) return grau[3];
   if (imc >= 24.9) return grau[2];
   if (imc >= 18.5) return grau[1];
   if (imc < 18.5) return grau[0];
